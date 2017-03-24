@@ -1,10 +1,22 @@
 #portfolio {
+  @include screen-sm(){
+
+    padding-bottom: 40px;
+  }
+
   .title-wrap {
     width: 40%;
     margin: 0 auto;
     padding: 10px;
     border-bottom: 3px solid $yellow;
     position: relative;
+
+    @include screen-sm(){
+      width:70%;
+    }
+    @include screen-xs(){
+      width:100%;
+    }
   }
   .title {
     margin-bottom: 3rem;
@@ -24,8 +36,16 @@
     li {
       font-size: 25px;
       margin-bottom: 135px;
+
+      @include screen-sm() {
+        margin-bottom: 85px;
+      }
       &:nth-child(odd) .case-study {
         transform: translateX(25px);
+
+        @include screen-sm(){
+          transform: translateX(0);
+        }
       }
 
       &:nth-child(even) .case-study {
@@ -33,6 +53,10 @@
           left: auto;
           text-align: right;
           right: 90px;
+
+          @include screen-sm(){
+            right: 60px;
+          }
         }
         .case-study-mask-number {
           right: auto;
@@ -43,11 +67,9 @@
     .case-study {
 
       display: block;
-      width: 100%;
-      height: 100%;
       width: 80%;
-      opacity: 1;
       height: 480px;
+      opacity: 1;
       background-color: #1c1d25;
       position: relative;
       box-shadow: 0 20px 80px 0 rgba(0, 0, 0, .45);
@@ -57,6 +79,11 @@
       background-size: cover;
       background-repeat: no-repeat;
       transition: all .35s ease;
+
+      @include screen-sm(){
+          width: 95%;
+          height: 360px;
+        }
 
       &:hover {
         transform: scale(.99);
@@ -173,6 +200,11 @@
         opacity: 0;
         transition: opacity .3s, transform .45s cubic-bezier(.694, .048, .335, 1);
         z-index: 90;
+
+        @include screen-xs(){
+          display: none;
+        }
+
       }
       .case-study-text-section {
         opacity: 1;
@@ -186,13 +218,25 @@
         transform: scale(1) translateX(0);
         transition: transform .45s, opacity .25s;
 
+        @include screen-sm(){
+          left: 60px;
+        }
         .case-study-title {
           font-size: 1.5em;
           font-weight: 900;
+
+          @include screen-sm(){
+            font-size: 1.2em;
+          }
+
         }
         .case-study-subtitle {
           font-size: 1em;
           font-weight: 400;
+
+          @include screen-sm(){
+            font-size: 0.8em;
+          }
         }
       }
       .the-button {

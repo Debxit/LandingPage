@@ -9,7 +9,7 @@
   display: flex;
   align-items: center;
 
-  @include screen-md() {
+  @include screen-xl() {
     height: 85px;
     align-items: center;
   }
@@ -153,7 +153,7 @@
       height: 3px;
       background: #fff;
       position: relative;
-      transition: background linear .2s;
+      //transition: background linear .2s;
 
       &:before {
         top: -10px;

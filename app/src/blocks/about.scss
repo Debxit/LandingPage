@@ -53,6 +53,10 @@
       right: 0 ;
     }
     .floor1,.floor2,.floor3{
+
+      @include screen-xs(){
+        width: 50%;
+      }
       img{
         width:100%;
       }
