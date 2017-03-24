@@ -1,0 +1,119 @@
+#prices {
+  .title {
+    margin-bottom: 10%;
+    text-align: center;
+  }
+
+  .prices-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    @include screen-md(){
+      justify-content: space-around;
+    }
+
+  }
+
+  .price-card {
+    box-sizing:border-box;
+    width: 30%;
+    display: inline-flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: space-around;
+    border-radius: 4px;
+    font-size: 15px;
+    box-shadow: 0px 0px 15px 0px rgba(50, 50, 50, 0.75);
+    color: $font-gray-dark;
+    padding: 40px;
+    position: relative;
+    top:0;
+    transition: all ease-out .5s;
+
+    @include screen-lg(){
+      font-size: 12px;
+    }
+
+    @include screen-md(){
+      margin-bottom: 4em;
+      width: 45%;
+    }
+
+    @include  screen-sm(){
+        width:60%;
+    }
+    @include  screen-xs(){
+        width:85%;
+    }
+
+    &:hover {
+      top: -25px;
+      box-shadow: 0px 0px 25px 0px rgba(50, 50, 50, 0.55);
+      color: $blue;
+
+
+      .__blue {
+        border-color: #fff;
+        color: #fff;
+        &:after {
+          background: $blue;
+          border-radius: 4px;
+          width: 100%;
+        }
+      }
+
+      .work-list__item:before{
+        color: $blue;
+      }
+    }
+
+    &__count {
+      font-weight: 900;
+      font-size: 2.5em;
+      font-family: $font-side;
+    }
+    &__work {
+      font-weight: 700;
+      font-size: 1.2em;
+      margin: 10% 0;
+      color: $font-gray-dark;
+
+    }
+    .btn {
+      margin-left: 30px;
+      margin-top: 40px;
+      font-size: 1.1em;
+      text-align: center;
+      display: inline-block;
+    }
+  }
+
+  .work-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    &__item {
+      font-size: 1.1em;
+      color: $font-gray;
+      padding: 0.5em 0;
+      padding-left: 30px;
+      position: relative;
+
+      &:before {
+        content: '\f00c';
+        position: absolute;
+        display: block;
+        width: 25px;
+        height: 25px;
+        left: 0;
+        top: 0.5em;
+        font-size: 1.2em;
+        font-family: "FontAwesome";
+        color: $font-gray-dark;
+        transition: all ease-out .5s;
+      }
+    }
+  }
+}

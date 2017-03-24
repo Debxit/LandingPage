@@ -1,0 +1,56 @@
+
+
+.profit-wrap {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.profit-block {
+  width: 20%;
+  box-sizing: border-box;
+
+  padding: 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 4px;
+  box-shadow: 0px 0px 15px 0px rgba(50, 50, 50, 0.75);
+
+  &__img {
+    img {
+      width: 100%;
+    }
+    margin-bottom: 2rem;
+  }
+
+  &__title {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+
+  }
+
+  &__descr {
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 400;
+    color: $font-gray;
+  }
+
+  @include screen-lg() {
+    width: 22%;
+  }
+  @include screen-md() {
+    width: 37%;
+    margin-bottom: 7%;
+  }
+  @include screen-sm() {
+    width: 42%;
+  }
+  @include screen-xs() {
+    width:70%;
+  }
+}

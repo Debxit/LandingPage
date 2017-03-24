@@ -1,0 +1,96 @@
+#about {
+  background: $lilac url("../img/logo-bg.png") 10% 25% no-repeat;
+
+  background-size: contain;
+  position: relative;
+
+  .content {
+    width: 45%;
+    padding-left: 5%;
+    color: #fff;
+    display: inline-block;
+
+    @include screen-md(){
+      width:100%;
+      padding-left: 0;
+
+    }
+  }
+
+  .title {
+    margin-bottom: 10%;
+    @include screen-md(){
+      margin-bottom: 5%;
+
+    }
+  }
+  .text {
+    font-size: 1.8rem;
+    line-height: 2.5rem;
+    font-weight: 400;
+
+    @include screen-lg(){
+      font-size: 1.4rem;
+      line-height: 2.3rem;
+    }
+    p {
+      margin: 30px 0;
+    }
+  }
+  .graphic {
+    top: 15%;
+    right: 5%;
+    display: inline-block;
+    position: absolute;
+    width: 45%;
+    height: 40vw;
+
+    @include screen-md{
+      width: 100%;
+      height: 60vw;
+      position: relative;
+      top:0;
+      right: 0 ;
+    }
+    .floor1,.floor2,.floor3{
+      img{
+        width:100%;
+      }
+    }
+    .floor1 {
+      top: 5%;
+      left:15%;
+      z-index: 5;
+      position: absolute;
+      @include screen-md {
+        top: 0;
+        left: 30%;
+      }
+    }
+    .floor2 {
+      top:22%;
+      left:10%;
+      position: absolute;
+      z-index: 3;
+
+      @include screen-md {
+        top: 25%;
+        left:20%;
+      }
+
+    }
+    .floor3 {
+      top: 45%;
+      left:5%;
+      position: absolute;
+      z-index: 1;
+      @include screen-md {
+        top: 55%;
+        left: 10%;
+
+      }
+
+    }
+
+  }
+}
