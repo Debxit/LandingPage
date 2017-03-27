@@ -75,6 +75,7 @@ section{
   color: #fff;
   font-size: 1.2rem;
   padding: 1rem;
+  background: transparent;
   display: inline-block;
   border: 2px solid #fff;
   border-radius: 4px;
@@ -100,7 +101,7 @@ section{
   }
 
   &:hover{
-    color: $dark-blue;
+    color: $blue;
     cursor: pointer;
 
     &:after{
@@ -124,4 +125,10 @@ section{
       border-radius: 4px;
     }
   }
+}
+
+.--blue-fill{
+  background: $blue;
+  color: #fff;
+
 }

@@ -4,6 +4,8 @@
   background-size: contain;
   position: relative;
 
+
+
   .content {
     width: 45%;
     padding-left: 5%;
@@ -45,6 +47,7 @@
     width: 45%;
     height: 40vw;
 
+
     @include screen-md{
       width: 100%;
       height: 60vw;
@@ -54,6 +57,12 @@
     }
     .floor1,.floor2,.floor3{
 
+      transition: transform 0.5s ease;
+      transform: translateX(800px);
+
+      &.visible{
+       transform: translateX(0);
+      }
       @include screen-xs(){
         width: 50%;
       }
