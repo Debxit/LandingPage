@@ -57,6 +57,20 @@ $(document).ready(function () {
         originY: 1.0
     });
 
+    $("#parallax").parallax({
+        calibrateX: false,
+        calibrateY: true,
+        invertX: false,
+        invertY: true,
+        limitX: false,
+        limitY: false,
+        scalarX: 7,
+        scalarY: 8,
+        frictionX: 0.2,
+        frictionY: 0.3,
+        originX: 0.0,
+        originY: 0.0
+    });
 /* menu scrolling */
 
     $('.nav__item a').click(function(){

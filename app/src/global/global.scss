@@ -83,6 +83,7 @@ section{
   transition: all linear .3s;
   position: relative;
   z-index: 0;
+  font-family: $font-main;
   text-decoration: none;
   text-transform: uppercase;
 
@@ -118,7 +119,6 @@ section{
   color: $blue;
 
   &:hover{
-    border-color: #fff;
     color: #fff;
     &:after{
       background:$blue;
