@@ -56,22 +56,69 @@
       color: $font-gray;
     }
     &__soc{
+      margin-top: 35px;
+      margin-bottom: 15px;
       height: 50px;
+      display: flex;
+      justify-content:center;
+
+     .fb,.tw,.in{
+       width:33px;
+       height: 33px;
+       margin: 0 10px;
+       cursor: pointer;
+       outline: none;
+
+       &:hover{
+         .socials{
+           fill:#cdd645;
+         }
+       }
+
+     }
     }
 
   }
+  #fb,#tw,#in, .socials{
+    fill:#78c2ff;
+  }
+
+  .slick-dots {
+    bottom: -50px;
+    li {
+      width: 36px;
+      height: 18px;
+    }
+    button{
+      margin: 0 16px;
+      width: 16px;
+      height: 16px;
+
+      &:hover{
+        &:before{
+          box-shadow: inset 0 0 0 8px rgba(255, 255, 255, 0.3);;
+        }
+      }
+
+      &:before{
+        content: '';
+        border-radius: 50%;
+        width: 16px;
+        height: 16px;
+        background: $light-blue;
+        opacity: 1;
+        box-shadow: inset 0 0 0 8px rgba(255, 255, 255, 0.6);
+        transition: box-shadow 0.3s ease;
+      }
+    }
+  }
+
   .slick-dots li.slick-active button:before{
     content: '';
-    border-radius: 50%;
-    border:2px solid $light-blue;
-    background: #97daff;
+    opacity: 0.8;
+    box-shadow: inset 0 0 0 2px $dark-blue;
   }
-  .slick-dots li button:before{
-    content: '';
-    border-radius: 50%;
-    background: $light-blue;
-    transition: all ease .3s;
-  }
+
 
   .wave{
     position: absolute;
@@ -88,10 +135,23 @@
       position: absolute;
       max-height:70%;
       left:-5% !important;
+      animation: wave 4s 0.1s infinite linear both;
+
+      &:nth-child(2) {
+        animation-delay: 0.5s;
+      }
+      &:nth-child(3) {
+        animation-delay: 1s;
+      }
+      &:nth-child(4) {
+        animation-delay: 0.15s;
+      }
+      &:nth-child(5) {
+        animation-delay: 1.4s;
+      }
 
       @include screen-xl(){
-        bottom: 0 !important;
-        top: auto !important;
+        bottom: -3%;
       }
       img{
         width:110%;
@@ -99,4 +159,15 @@
       }
     }
   }
+}
+
+
+@keyframes wave {
+  0% {
+    transform: rotateZ(0deg) translate3d(1.75%,2%,0) rotateZ(0deg);
+  }
+
+100% {
+  transform: rotateZ(360deg) translate3d(1.75%,2%,0) rotateZ(-360deg);
+}
 }

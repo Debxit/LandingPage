@@ -42,21 +42,6 @@ $(document).ready(function () {
         ]
     });
 
-    $('#scene').parallax({
-        calibrateX: false,
-        calibrateY: true,
-        invertX: false,
-        invertY: true,
-        limitX: false,
-        limitY: 50,
-        scalarX: 6,
-        scalarY: 6,
-        frictionX: 0.2,
-        frictionY: 0.8,
-        originX: 0.0,
-        originY: 1.0
-    });
-
     $("#parallax").parallax({
         calibrateX: false,
         calibrateY: true,
@@ -71,42 +56,32 @@ $(document).ready(function () {
         originX: 0.0,
         originY: 0.0
     });
-/* menu scrolling */
 
-    $('.nav__item a').click(function(){
+
+    /* menu scrolling */
+
+    $('.nav__item a').click(function () {
         $('.nav__item').removeClass("active");
         $(this).parent().addClass("active");
         var hashVal = $(this).attr("href");
-        var scrollToPosition = $(hashVal).offset().top - headerHeight;
+        var scrollToPosition = $(hashVal).offset().top - headerHeight + 2;
         // perform animated scrolling by getting top-position of target-element and set it  as scroll target
-        $('html, body').stop().animate({ scrollTop: scrollToPosition}, 600,  function() {
-            location.hash = target;
-        });
-
+        $('html, body').stop().animate({scrollTop: scrollToPosition}, 600);
         return false;
     });
 
-$(window).scroll(function(){
 
-var windowPos = $(window).scrollTop();
+    if( $("#about").length ) {
+        $(window).scroll(function () {
+            var windowPos = $(window).scrollTop();
+            if (( windowPos > ($("#about").offset().top - headerHeight)) && ( windowPos < $("#prices").offset().top)) {
+                $('.floor3,.floor2,.floor1').addClass("visible").removeClass("not-visible");
 
-    if (( windowPos > ($("#about").offset().top - headerHeight))&&( windowPos < $("#prices").offset().top)){
-        $('.floor3').addClass("visible");
+            } else {
+                $('.floor3,.floor2,.floor1').removeClass("visible").addClass("not-visible");
 
-        $('.floor2').delay("1200").addClass("visible");
-
-        $('.floor1').delay("1500").addClass("visible");
- } else {
-        $('.floor1').removeClass("visible");
-
-        $('.floor2').delay("1200").removeClass("visible");
-           // setTimeout("", 1000);
-        $('.floor3').delay("2000").removeClass("visible");
-
+            }
+        });
     }
-
-
-});
-
 
 });

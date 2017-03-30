@@ -2,7 +2,7 @@
   margin-top: 115px;
   background: $blue;
   position: relative;
-  height: 70vh;
+  height: 100vh;
 
   #parallax{
     position: absolute;
@@ -95,9 +95,8 @@
     position: absolute;
     padding-bottom: 35%;
     width: 45%;
-    //height: 480px;
     right: 0;
-    top: 0;
+    top: 8%;
     overflow: hidden;
 
     &__cut{
@@ -109,6 +108,7 @@
       left: 0;
       overflow: hidden;
 
+
       @include screen-lg(){
         padding-bottom: 85%;
         top: auto;
@@ -116,10 +116,10 @@
       }
     }
 
-    @include screen-xl(){
-      padding-bottom: 40%;
-      width: 50%;
-    }
+    //@include screen-xl(){
+    //  padding-bottom: 40%;
+    //  width: 50%;
+    //}
     @include screen-md(){
       top: auto;
       bottom: 5%;
@@ -134,7 +134,7 @@
       position: absolute;
       left:10%;
       top:0;
-      background: url("../img/path.png") bottom no-repeat;
+      background: url("../img/path_cut.png") bottom no-repeat;
       background-size: contain;
     }
     .circles {
@@ -147,13 +147,13 @@
       background: url("../img/circles-full.png") top no-repeat;
       background-size: contain;
 
-      @include screen-xl(){
-        top: 7%;
-        height:100%;
-      }
+      //@include screen-xl(){
+      //  top: 7%;
+      //  height:100%;
+      //}
 
       @include screen-lg(){
-
+        height: 100%;
         top: 22%;
       }
 

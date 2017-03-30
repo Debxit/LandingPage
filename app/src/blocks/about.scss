@@ -51,19 +51,26 @@
 
     @include screen-md{
       width: 100%;
-      height: 60vw;
+      height: 70vw;
       position: relative;
       top:0;
       right: 0 ;
     }
-    .floor1,.floor2,.floor3{
 
-      transition: transform 0.5s ease;
-      transform: translateX(800px);
+    @include screen-sm{
+      height: 80vw;
+    }
+    .floor1,.floor2,.floor3{
+      animation: 1.5s ease both;
+
+      &.not-visible{
+        animation-name: move-back;
+      }
 
       &.visible{
-       transform: translateX(0);
-      }
+        animation-name: move-forward;
+       }
+
       @include screen-xs(){
         width: 50%;
       }
@@ -73,19 +80,23 @@
     }
     .floor1 {
       top: 5%;
-      left:15%;
+      left:25%;
       z-index: 5;
       position: absolute;
+
+
       @include screen-md {
         top: 0;
         left: 30%;
       }
     }
     .floor2 {
-      top:22%;
-      left:10%;
+      top: 24%;
+      left: 15%;
       position: absolute;
       z-index: 3;
+      animation-delay: 0.6s;
+
 
       @include screen-md {
         top: 25%;
@@ -98,6 +109,9 @@
       left:5%;
       position: absolute;
       z-index: 1;
+      animation-delay: 1.2s;
+
+
       @include screen-md {
         top: 55%;
         left: 10%;
@@ -106,5 +120,26 @@
 
     }
 
+  }
+}
+
+@keyframes move-forward{
+
+  from {
+    transform: translateX(1000px);
+  }
+
+  to {
+    transform: translateX(0px);
+  }
+
+}
+@keyframes move-back{
+  from {
+    transform: translateX(0px);
+  }
+
+  to {
+    transform: translateX(1000px);
   }
 }

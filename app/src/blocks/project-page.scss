@@ -1,0 +1,255 @@
+.project-header {
+  height: 115px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 5;
+  background: rgba(0,0,0,0.3);
+
+  @include screen-md(){
+    height: 85px;
+  }
+
+  .logo {
+    width: 200px;
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.project {
+  &.first-page {
+    font-size: 33px;
+    color: #fff;
+    height: 100vh;
+    position: relative;
+    box-sizing: border-box;
+    text-align: center;
+
+
+  }
+  &__title {
+    font-family: $font-side;
+    font-size: 1.35em;
+    font-weight: 800;
+    margin-top: 15%;
+
+    @include screen-xs(){
+      margin-top: 30%;
+    }
+  }
+  &__description {
+    font-family: $font-side;
+    font-size: 1em;
+    font-weight: 400;
+    font-style: italic;
+  }
+}
+
+.details-wrap, .fonts-wrap {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  flex-wrap: wrap;
+  position: relative;
+
+}
+
+.fonts-wrap {
+  padding: 100px 0;
+  @include screen-sm(){
+    padding: 20px 0;
+  }
+}
+
+.details {
+
+  &__left, &__right {
+    width: 47%;
+    display: inline-block;
+
+    @include screen-lg(){
+      width: 100%;
+      text-align: center;
+    }
+
+  }
+  &__center {
+    width: 100%;
+    padding: 100px 0;
+    text-align: center;
+    @include screen-sm(){
+      padding: 20px 0;
+    }
+  }
+  &__text {
+    color: $font-gray-dark;
+    font-size: 20px;
+    padding-bottom: 100px;
+    padding-top: 50px;
+    text-align: left;
+    p {
+      font-size: 1.1em;
+    }
+
+    @include screen-lg(){
+      font-size: 17px;
+    }
+    @include screen-md(){
+      padding-bottom: 20px;
+      padding-top: 20px;
+    }
+    @include screen-sm(){
+      font-size: 14px;
+    }
+  }
+  &__title {
+    font-weight: 900;
+    font-size: 3em;
+    margin: 1em 0;
+  }
+  &__img {
+    img {
+      max-width: 100%;
+    }
+  }
+
+  .color {
+    width: 29%;
+    display: inline-flex;
+    border-radius: 2px;
+    align-items: center;
+    padding: 0 40px;
+    font-size: 22px;
+    font-weight: 900;
+    height: 100px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
+    text-transform: uppercase;
+
+    @include screen-sm(){
+      width: 50%;
+    }
+    @include screen-xs(){
+      width: 65%;
+    }
+  }
+
+  .--pink {
+    background: rgba(222, 0, 65, 1);
+    color: $font-gray-dark;
+    position: relative;
+    top: -75px;
+    right: -75px;
+
+    @include screen-sm(){
+      top: 25px;
+      left: -55px;
+    }
+
+  }
+  .--gray {
+    background: rgba(50, 50, 50, 1);
+    color: $light-gray;
+  }
+  .--light-gray {
+    background: rgba(239, 239, 239, 1);
+    color: $font-gray-dark;
+    position: relative;
+    z-index: -1;
+    bottom: -75px;
+    left: -75px;
+
+    @include screen-sm(){
+      top: -25px;
+      left:auto;
+      right: -55px;
+    }
+  }
+}
+
+.cases {
+  padding: 0;
+  background: #efefef;
+
+  &__img {
+    position: relative;
+    top: -188px;
+    @include screen-md(){
+      top:-50px ;
+    }
+
+    @include screen-xs(){
+      top:0;
+    }
+
+    img {
+      max-width: 100%;
+    }
+  }
+}
+
+.next-project {
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @include screen-sm(){
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+  }
+
+  &__text {
+    display: inline-block;
+    width: 60%;
+    font-size: 20px;
+
+    @include screen-sm(){
+      width:100%;
+      font-size: 16px;
+    }
+
+  }
+  p {
+    font-size: 1.1em;
+  }
+  .title-next {
+    font-size: 2em;
+    font-weight: 900;
+    margin-bottom: 30px;
+
+  }
+  .arrow {
+    width: 120px;
+    margin-right: 20px;
+
+    svg {
+      transition: transform .5s ease;
+    }
+
+    a {
+      &:hover {
+        svg {
+          transform: translateX(20px);
+        }
+      }
+    }
+    .cls-1 {
+      stroke-linejoin: round;
+    }
+    .cls-2 {
+      stroke-miterlimit: 10;
+    }
+    .cls-1, .cls-2 {
+      fill: none;
+      stroke: #2d2d2d;
+      stroke-linecap: round;
+      stroke-width: 4px;
+    }
+  }
+}
