@@ -6,8 +6,8 @@
       fill:#78c2ff;
     }
 
-    .fb:hover  #fb{
-     fill:#cdd645;
+    .fb:hover #fb{
+    fill:#cdd645;
     }
    
    </style>

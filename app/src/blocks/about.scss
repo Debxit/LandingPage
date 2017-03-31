@@ -61,7 +61,7 @@
       height: 80vw;
     }
     .floor1,.floor2,.floor3{
-      animation: 1.5s ease both;
+      animation: 1s ease both;
 
       &.not-visible{
         animation-name: move-back;

@@ -4,7 +4,7 @@
     #tw{  
     fill:#78c2ff;
     }
-    #tw:hover{
+    .tw:hover  #tw{
      fill:#cdd645;
     }
    </style>

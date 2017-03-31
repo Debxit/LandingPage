@@ -214,10 +214,19 @@
             <div class="callback-form__title">
                 Обратная связь
             </div>
-            <form id="application" action="application.php" method="POST" name="application">
-                <input name="name" id="Name" maxlength="20" placeholder="Имя" required/>
-                <input name="telephone" type="Tel" id="Phone" maxlength="20" placeholder="Телефон" required/>
-                <textarea name="message" id="Message" cols="30" placeholder="Сообщение" rows="3"></textarea>
+            <form class="main-form" id="application" action="application.php" method="POST" name="application">
+                <div class="form-item">
+                    <input name="name" id="Name" maxlength="20" required/>
+                    <label for="Name">Имя</label>
+                </div>
+                <div class="form-item">
+                    <input class="form-item" name="telephone" type="Tel" id="Phone" maxlength="20" required/>
+                    <label for="Phone">Телефон</label>
+                </div>
+                <div class="form-item">
+                    <textarea class="form-item" name="message" id="Message" cols="30" rows="3" required></textarea>
+                    <label for="Message">Сообщение</label>
+                </div>
                 <button class="btn --blue-fill" type="submit" form="application">отправить</button>
             </form>
         </div>

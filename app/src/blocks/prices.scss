@@ -1,4 +1,6 @@
 #prices {
+
+  background: url('../img/black_bg.png') center/cover ;
   .title {
     margin-bottom: 10%;
     text-align: center;
@@ -16,6 +18,7 @@
   }
 
   .price-card {
+    background: #fff;
     box-sizing:border-box;
     width: 30%;
     display: inline-flex;
@@ -24,7 +27,7 @@
     align-content: space-around;
     border-radius: 4px;
     font-size: 15px;
-    box-shadow : 0px 0px 5px rgba(0, 0, 0, 0.12);
+    box-shadow : 0px 0px 7px rgba(0, 0, 0, 0.12);
     color: $font-gray-dark;
     padding: 40px;
     position: relative;
@@ -85,7 +88,7 @@
       }
     }
     &__work {
-      font-weight: 700;
+      font-weight: 900;
       font-size: 1.2em;
       margin: 10% 0;
       color: $font-gray-dark;

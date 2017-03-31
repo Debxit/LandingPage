@@ -4,7 +4,7 @@
     #in{  
     fill:#78c2ff;
     }
-    #in:hover{
+    .in:hover  #in{
      fill:#cdd645;
     }
    </style>

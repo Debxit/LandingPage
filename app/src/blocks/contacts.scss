@@ -1,40 +1,47 @@
-#contacts{
+#contacts {
   height: 80vh;
   position: relative;
   padding-bottom: 0;
 
-
-  @include screen-sm(){
-   height: auto;
+  @include screen-sm() {
+    height: auto;
     padding-top: 20px;
   }
 
   #map {
     height: 100%;
 
-
-    @include screen-sm(){
-     height: 450px;
+    @include screen-sm() {
+      height: 450px;
     }
   }
+
+  #map__content {
+    margin: 25px;
+  }
+
   #firstHeading {
-    color: #fa2449;
-    font-size: 16px;
-    line-height: 20px;
+    color: $blue;
+    font-size: 35px;
+    font-weight: 900;
+    line-height: 45px;
+    margin: 15px 0;
   }
   #bodyContent h4 {
     color: #424242;
-    font-size: 15px;
+    font-size: 17px;
+    font-weight: 400;
   }
-  .btn{
-    margin-top:50px;
-    &:hover{
+  .btn {
+    margin-top: 50px;
+    &:hover {
       border-color: $blue;
       color: $blue;
     }
   }
 }
-.callback-form{
+
+.callback-form {
   position: absolute;
   max-width: 350px;
   padding: 35px 40px;
@@ -43,39 +50,56 @@
   background: #fff;
   box-shadow: 0px 0px 15px 0px rgba(50, 50, 50, 0.55);
 
-  @include screen-xs(){
+  @include screen-xs() {
     position: static;
-    width:100%;
+    width: 100%;
     margin: 20px auto;
   }
-  &__title{
-    font-weight: 600;
+  &__title {
+    font-weight: 900;
     font-size: 22px;
     margin-bottom: 15px;
   }
-  input,textarea{
-    display: block;
-    width: 100%;
-    margin-top:10px;
-    min-height: 40px;
-    border: none;
-    border-bottom: solid 1px $light-gray;
-    &::-webkit-input-placeholder,&::-moz-placeholder,&:-moz-placeholder,&:-ms-input-placeholder,&::placeholder {
-      color: $light-gray;
+
+  .main-form {
+
+    .form-item {
+      position: relative;
+      overflow: hidden;
+    }
+    label {
+      position: absolute;
+      bottom: 8px;
+      left: 2px;
+      color: #a0a0a0;
+      z-index: 0;
       font-weight: 300;
-      font-family: $font-main;
-      font-size: 1.3rem;
-      text-shadow: 0 1px 1px rgba(0, 0, 0, .3);
+      font-size: 16px;
+      transition: transform 0.3s;
+      transform: translateX(0);
     }
-    &:focus, &:active{
+
+    input, textarea {
+      display: block;
+      width: 100%;
+      margin-top: 10px;
+      min-height: 40px;
+      font-size: 16px;
+      border: none;
+      border-bottom: solid 1px $light-gray;
+      &:valid + label {
+        transform: translateX(-200px);
+      }
+      &:focus + label {
+        transform: translateX(-200px);
+      }
+      &:focus {
         outline: none;
+      }
     }
-
-
   }
-  textarea{
+  textarea {
     margin-top: 20px;
   }
-
 
 }

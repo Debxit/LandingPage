@@ -62,7 +62,10 @@ $(document).ready(function () {
 
     $('.nav__item a').click(function () {
         $('.nav__item').removeClass("active");
-        $(this).parent().addClass("active");
+
+        if (!$(this).parent().hasClass("logo")) {
+            $(this).parent().addClass("active");
+        }
         var hashVal = $(this).attr("href");
         var scrollToPosition = $(hashVal).offset().top - headerHeight + 2;
         // perform animated scrolling by getting top-position of target-element and set it  as scroll target
@@ -71,7 +74,7 @@ $(document).ready(function () {
     });
 
 
-    if( $("#about").length ) {
+    if ($("#about").length) {
         $(window).scroll(function () {
             var windowPos = $(window).scrollTop();
             if (( windowPos > ($("#about").offset().top - headerHeight)) && ( windowPos < $("#prices").offset().top)) {
@@ -83,6 +86,5 @@ $(document).ready(function () {
             }
         });
     }
-
 
 });

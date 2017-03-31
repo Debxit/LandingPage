@@ -114,6 +114,9 @@
         top: auto;
         bottom: 25px;
       }
+      @include screen-xs(){
+        bottom: 15px;
+      }
     }
 
     //@include screen-xl(){
