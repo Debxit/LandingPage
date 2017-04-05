@@ -42,21 +42,23 @@ $(document).ready(function () {
         ]
     });
 
-    $("#parallax").parallax({
-        calibrateX: false,
-        calibrateY: true,
-        invertX: false,
-        invertY: true,
-        limitX: false,
-        limitY: false,
-        scalarX: 7,
-        scalarY: 8,
-        frictionX: 0.2,
-        frictionY: 0.3,
-        originX: 0.0,
-        originY: 0.0
-    });
+    if ($(window).width() > 768) {
 
+        $("#parallax").parallax({
+            calibrateX: false,
+            calibrateY: true,
+            invertX: false,
+            invertY: true,
+            limitX: false,
+            limitY: false,
+            scalarX: 7,
+            scalarY: 8,
+            frictionX: 0.2,
+            frictionY: 0.3,
+            originX: 0.0,
+            originY: 0.0
+        });
+    }
 
     /* menu scrolling */
 
@@ -73,6 +75,10 @@ $(document).ready(function () {
         return false;
     });
 
+    $("#connect").click(function () {
+        var scrollToPosition = $('#contacts').offset().top - headerHeight + 2;
+        $('html, body').stop().animate({scrollTop: scrollToPosition}, 600);
+    });
 
     if ($("#about").length) {
         $(window).scroll(function () {
@@ -86,5 +92,6 @@ $(document).ready(function () {
             }
         });
     }
+
 
 });

@@ -1,6 +1,8 @@
 #portfolio {
-  @include screen-sm(){
+  padding-bottom: 20px;
 
+
+  @include screen-sm(){
     padding-bottom: 40px;
   }
 
@@ -10,6 +12,7 @@
     padding: 10px;
     border-bottom: 3px solid $yellow;
     position: relative;
+    padding-bottom: 50px;
 
     @include screen-sm(){
       width:70%;
@@ -22,10 +25,15 @@
     margin-bottom: 3rem;
   }
   .text {
-    font-size : 22px;
-    line-height : 37px;
-    margin-bottom: 3rem;
+    font-size: 21px;
     text-align: justify;
+    font-weight: 300;
+    line-height: 37px;
+
+    @include screen-sm(){
+      text-align:center;
+      line-height: 24px;
+    }
 
   }
 
@@ -192,7 +200,7 @@
         top: -40px;
         right: -45px;
         width: 265px;
-        height: 198px;
+        height: 210px;
         font-size: 8em;
         font-weight: 900;
         overflow: hidden;
@@ -201,8 +209,10 @@
         opacity: 0;
         transition: opacity .3s, transform .45s cubic-bezier(.694, .048, .335, 1);
         z-index: 90;
-
-        @include screen-xs(){
+        @include screen-lg(){
+          font-size: 6em;
+        }
+        @include screen-sm(){
           display: none;
         }
 

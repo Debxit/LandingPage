@@ -45,9 +45,10 @@
 
     @include  screen-sm(){
         width:60%;
+      padding: 20px;
     }
     @include  screen-xs(){
-        width:85%;
+        width:95%;
     }
 
     &:hover {
@@ -63,7 +64,6 @@
         color: #fff;
         &:after {
           background: $blue;
-          border-radius: 2px;
           width: 100%;
         }
       }

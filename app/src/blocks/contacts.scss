@@ -2,6 +2,7 @@
   height: 80vh;
   position: relative;
   padding-bottom: 0;
+  padding-top: 0;
 
   @include screen-sm() {
     height: auto;
@@ -49,7 +50,9 @@
   text-align: center;
   background: #fff;
   box-shadow: 0px 0px 15px 0px rgba(50, 50, 50, 0.55);
-
+  @include screen-sm() {
+    top: 15%;
+  }
   @include screen-xs() {
     position: static;
     width: 100%;

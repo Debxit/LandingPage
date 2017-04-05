@@ -99,6 +99,7 @@ section{
     z-index: -1;
     transition: width ease-out .3s;
 
+
   }
 
   &:hover{
@@ -123,7 +124,7 @@ section{
 
     &:after{
       background:$blue;
-      border-radius: 2px;
+
     }
   }
 }

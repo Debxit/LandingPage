@@ -11,21 +11,37 @@
       width:50px;
       height: 50px;
       border-radius: 50%;
-      background: $font-gray;
+      background: $dark-font-gray;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       margin: 0 10px;
       transition: all ease .5s;
+      text-decoration: none;
+      color: $dark-blue;
+      font-size: 25px;
+      box-sizing: border-box;
+
+      &.vk{
+        font-size: 1.5em;
+      }
+
+      &.fb, &.od{
+        font-size:22px;
+      }
+
+
 
       @include screen-xs(){
         width:35px;
         height: 35px;
-
+        font-size: 18px !important;
       }
 
+
+
       &:hover{
-        background: $blue;
+        background: #10439f;
       }
 
     }
@@ -46,14 +62,14 @@
     }
   }
   .text{
-    color: $font-gray;
+    color: $dark-font-gray;
     font-size: 1.5rem;
     @include screen-sm(){
      text-align: center;
       margin-top: 10px;
     }
     a{
-      color: $light-gray;
+      color: #818c99;
       &:hover{
         text-decoration: none;
       }
