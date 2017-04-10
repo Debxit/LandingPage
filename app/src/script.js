@@ -7,6 +7,18 @@ $(document).ready(function () {
         $(this).toggleClass("is-active");
         $(".header .nav").toggleClass("open");
     });
+//close mobile menu on body click
+    $(document).on('click', function(e) {
+        var target = e.target;
+        if ($(target).hasClass('toggle-button')||$(target).hasClass("icon-bar")||$(target).hasClass("nav__item")){
+
+            return false;
+        }
+
+        $('.toggle-button').removeClass("is-active");
+        $(".header .nav").removeClass("open");
+    });
+
 
     $('.team-slider').slick({
         infinite: true,
