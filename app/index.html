@@ -1,24 +1,50 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-	@@include('partials/head.html')
-	<title>Millenium</title>
+    @@include('partials/head.html')
+    <title>Millenium</title>
 </head>
 <body>
 
 @@include('partials/header.html')
 
-	<main class="main">
-		@@include('partials/start.html')
-		@@include('partials/profits.html')
-		@@include('partials/about.html')
-		@@include('partials/prices.html')
-		@@include('partials/team.html')
-		@@include('partials/portfolio.html')
-		@@include('partials/contacts.html')
-	</main>
+<main class="main">
+    @@include('partials/start.html')
+    @@include('partials/profits.html')
+    @@include('partials/about.html')
+    @@include('partials/prices.html')
+    @@include('partials/team.html')
+    @@include('partials/portfolio.html')
+    @@include('partials/contacts.html')
+</main>
 
 @@include('partials/footer.html')
 
+
+<div id="modal_form" class="callback-form">
+    <span id="modal_close"></span>
+    <div class="callback-form__title">
+        Обратная связь
+    </div>
+    <form class="main-form" id="application" name="application">
+        <div class="form-item">
+            <input name="name" id="Name" type="text" maxlength="20" required/>
+            <label for="Name">Имя</label>
+            <div class="error-box"></div>
+        </div>
+        <div class="form-item">
+            <input class="form-item" name="telephone" type="tel" pattern="^\d{3}-\d{3}-\d{4}$" id="Phone" maxlength="20" required/>
+            <label for="Phone">Телефон</label>
+            <div class="error-box"></div>
+        </div>
+        <div class="form-item">
+            <textarea class="form-item" name="message" id="Message" cols="30" rows="3" required></textarea>
+            <label for="Message">Сообщение</label>
+            <div class="error-box"></div>
+        </div>
+        <button class="btn --blue-fill" type="submit" form="application" value="Отправить письмо">отправить</button>
+    </form>
+</div>
+<div id="overlay"></div>
 </body>
 </html>

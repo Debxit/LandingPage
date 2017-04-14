@@ -66,6 +66,15 @@
 
   .main-form {
 
+    .not_error{
+      border-bottom: 1px solid #009900;
+    }
+    .error{
+      border-bottom: 1px solid #990000;
+    }
+    .error-box{
+      display: none;
+    }
     .form-item {
       position: relative;
       overflow: hidden;
