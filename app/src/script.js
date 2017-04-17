@@ -105,27 +105,32 @@ $(document).ready(function () {
         });
     }
 
+var close_modal = function(){
+    $('#modal_form')
+        .animate({opacity: 0, top: '45%'}, 200,
+            function(){
+                $(this).css('display', 'none');
+                $('#overlay').fadeOut(400);
+            }
+        );
+};
 
-
-    $('a.buy').click( function(event){ // лoвим клик пo ссылки с id="go"
+    $('a.buy').click( function(event){
         event.preventDefault(); // выключaем стaндaртную рoль элементa
         $('#overlay').fadeIn(400, // снaчaлa плaвнo пoкaзывaем темную пoдлoжку
-            function(){ // пoсле выпoлнения предъидущей aнимaции
+            function(){ // пoсле выпoлнения предыдущей aнимaции
                 $('#modal_form')
                     .css('display', 'block') // убирaем у мoдaльнoгo oкнa display: none;
                     .animate({opacity: 1, top: '50%'}, 200); // плaвнo прибaвляем прoзрaчнoсть oднoвременнo сo съезжaнием вниз
             });
     });
     /* Зaкрытие мoдaльнoгo oкнa, тут делaем тo же сaмoе нo в oбрaтнoм пoрядке */
-    $('#modal_close, #overlay').click( function(){ // лoвим клик пo крестику или пoдлoжке
-        $('#modal_form')
-            .animate({opacity: 0, top: '45%'}, 200,  // плaвнo меняем прoзрaчнoсть нa 0 и oднoвременнo двигaем oкнo вверх
-                function(){ // пoсле aнимaции
-                    $(this).css('display', 'none'); // делaем ему display: none;
-                    $('#overlay').fadeOut(400); // скрывaем пoдлoжку
-                }
-            );
-    });
+    $('#modal_close, #overlay').click(
+        function () {
+            close_modal();
+        }
+
+    );
 
 
     /**************** Валидация формы **********************/
@@ -144,14 +149,13 @@ $(document).ready(function () {
             case 'Name':
                 var rv_name = /^[a-zA-Zа-яА-Я]+$/; // используем регулярное выражение
 
-                console.log('name form');
                 // Eсли длина имени больше 2 символов, оно не пустое и удовлетворяет рег. выражению,
                 // то добавляем этому полю класс .not_error,
                 // и ниже в контейнер для ошибок выводим слово " Принято", т.е. валидация для этого поля пройдена успешно
 
                 if(val.length > 2 && val != '' && rv_name.test(val))
                 {
-                    $(this).removeClass('error').addClass('not_error');
+                    $(this).parent().removeClass('error').addClass('not_error');
                 }
 
                 // Иначе, мы удаляем класс not-error и заменяем его на класс error, говоря о том что поле содержит ошибку валидации,
@@ -159,11 +163,9 @@ $(document).ready(function () {
 
                 else
                 {
-                    $(this).removeClass('not_error').addClass('error');
-                    $(this).next('.error-box').html('поле "Имя" обязательно для заполнения<br>, длина имени должна составлять не менее 2 символов<br>, поле должно содержать только русские или латинские буквы')
-                        .css('color','red')
-                        .animate({'paddingLeft':'10px'},400)
-                        .animate({'paddingLeft':'5px'},400);
+                    $(this).parent().removeClass('not_error').addClass('error');
+                    $(this).siblings('.error-box').text('длина имени должна составлять не менее 2 символов');
+
                 }
                 break;
 
@@ -192,20 +194,15 @@ $(document).ready(function () {
             case 'Phone':
              var rv_phone = /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}/;
 
-
-                console.log('phone form');
-
              if(val != '' && rv_phone.test(val))
              {
-             $(this).removeClass('error').addClass('not_error');
+             $(this).parent().removeClass('error').addClass('not_error');
              }
              else
              {
-             $(this).removeClass('not_error').addClass('error');
-             $(this).next('.error-box').html('поле "Телефон" обязательно для заполнения<br>, поле должно содержать правильный номер телефона<br>')
-             .css('color','red')
-             .animate({'paddingLeft':'10px'},400)
-             .animate({'paddingLeft':'5px'},400);
+             $(this).parent().removeClass('not_error').addClass('error');
+             $(this).siblings('.error-box').text('поле должно содержать правильный номер телефона');
+
              }
              break;
 
@@ -213,15 +210,12 @@ $(document).ready(function () {
             case 'Message':
                 if(val != '' && val.length < 5000)
                 {
-                    $(this).removeClass('error').addClass('not_error');
+                    $(this).parent().removeClass('error').addClass('not_error');
                 }
                 else
                 {
-                    $(this).removeClass('not_error').addClass('error');
-                    $(this).next('.error-box').html('поле "Сообщение" обязательно для заполнения')
-                        .css('color','red')
-                        .animate({'paddingLeft':'10px'},400)
-                        .animate({'paddingLeft':'5px'},400);
+                    $(this).parent().removeClass('not_error').addClass('error');
+                    $(this).siblings('.error-box').text('поле обязательно для заполнения');
                 }
                 break;
 
@@ -230,7 +224,7 @@ $(document).ready(function () {
     }); // end blur()
 
     // Теперь отправим наше письмо с помощью AJAX
-    $('form#application').submit(function(e){
+    $('form#application,form#application_buy').submit(function(e){
 
         // Запрещаем стандартное поведение для кнопки submit
         e.preventDefault();
@@ -241,23 +235,16 @@ $(document).ready(function () {
 
         if($('.not_error').length == 3)
         {
-            // Eще одним моментом является то, что в качестве указания данных для передачи обработчику send.php, мы обращаемся $(this) к нашей форме,
-            // и вызываем метод .serialize().
-            // Это очень удобно, т.к. он сразу возвращает сгенерированную строку с именами и значениями выбранных элементов формы.
+            var curr_form = $(this);
 
             $.ajax({
                 url: 'application.php',
                 type: 'post',
                 data: $(this).serialize(),
 
-                beforeSend: function(xhr, textStatus){
-                    $('form#feedback-form :input').attr('disabled','disabled');
-                },
-
-                success: function(response){
-                    $('form#application :input').removeAttr('disabled');
-                    $('form#application :text, textarea').val('').removeClass().next('.error-box').text('');
-                    alert(response);
+                success: function(){
+                    $(curr_form).find('.form-item').removeClass('not_error').find('input, textarea').val('').parent();
+                    close_modal();
                 }
             }); // end ajax({...})
         }
@@ -270,7 +257,5 @@ $(document).ready(function () {
         }
 
     }); // end submit()
-
-
 
 });

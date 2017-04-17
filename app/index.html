@@ -26,14 +26,14 @@
     <div class="callback-form__title">
         Обратная связь
     </div>
-    <form class="main-form" id="application" name="application">
+    <form class="main-form" id="application_buy" name="application">
         <div class="form-item">
             <input name="name" id="Name" type="text" maxlength="20" required/>
             <label for="Name">Имя</label>
             <div class="error-box"></div>
         </div>
         <div class="form-item">
-            <input class="form-item" name="telephone" type="tel" pattern="^\d{3}-\d{3}-\d{4}$" id="Phone" maxlength="20" required/>
+            <input class="form-item" name="phone" type="tel" id="Phone" maxlength="20" required/>
             <label for="Phone">Телефон</label>
             <div class="error-box"></div>
         </div>
@@ -42,7 +42,7 @@
             <label for="Message">Сообщение</label>
             <div class="error-box"></div>
         </div>
-        <button class="btn --blue-fill" type="submit" form="application" value="Отправить письмо">отправить</button>
+        <button class="btn --blue-fill" type="submit" form="application_buy">отправить</button>
     </form>
 </div>
 <div id="overlay"></div>

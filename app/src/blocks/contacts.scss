@@ -67,13 +67,21 @@
   .main-form {
 
     .not_error{
-      border-bottom: 1px solid #009900;
+      input, textarea {
+        border-bottom: 1px solid #009900;
+      }
     }
     .error{
-      border-bottom: 1px solid #990000;
+      input, textarea {
+        border-bottom: 1px solid #990000;
+      }
+      .error-box{
+        display: block;
+      }
     }
     .error-box{
       display: none;
+      color: #990000;
     }
     .form-item {
       position: relative;
@@ -81,7 +89,7 @@
     }
     label {
       position: absolute;
-      bottom: 8px;
+      top: 20px;
       left: 2px;
       color: #a0a0a0;
       z-index: 0;
@@ -98,6 +106,7 @@
       min-height: 40px;
       font-size: 16px;
       border: none;
+      box-sizing: border-box;
       border-bottom: solid 1px $light-gray;
       &:valid + label {
         transform: translateX(-200px);
